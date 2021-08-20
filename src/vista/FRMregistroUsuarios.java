@@ -5,17 +5,30 @@
  */
 package vista;
 
+import controlador.ControladorUsuario;
+
 /**
  *
  * @author darci
  */
 public class FRMregistroUsuarios extends javax.swing.JInternalFrame {
-
+    
+     ControladorUsuario usuarioController = new ControladorUsuario();
+    
     /**
-     * Creates new form FRMregistroUsuarios
      */
     public FRMregistroUsuarios() {
-        initComponents();
+        
+      
+        
+        //CREA UN NUEVO FORMULARIO 
+        
+       
+            
+        }
+        
+        
+        
     }
 
     /**
@@ -52,6 +65,7 @@ public class FRMregistroUsuarios extends javax.swing.JInternalFrame {
         btnInsertarUsu = new javax.swing.JToggleButton();
 
         setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
         setMaximizable(true);
         setTitle("REGISTRO DE USUARIO");
@@ -107,7 +121,7 @@ public class FRMregistroUsuarios extends javax.swing.JInternalFrame {
                             .addComponent(jLabel8)
                             .addComponent(jLabel9)
                             .addComponent(jLabel10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtPasswordUsu)
                             .addComponent(txtNumId)
