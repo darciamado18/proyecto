@@ -199,10 +199,79 @@ public class Usuario {
         }
     
     }
+    
+    
+    public void modificar(){
+        try {
+            PreparedStatement sql = ConexionBD.conexion.prepareStatement("UPDATE "+this.getClass().getSimpleName()+
+                    " SET tipoidentUsu = ?, noidentifUsu = ?, nombresUsu = ?, apellidosUsu = ?, celularUsu = ?, correoUsu = ?, "
+                            + "direccionUsu = ?, rolUsu = ?, nick = ?, password = ?  WHERE idusuarios = ? ");
+            sql.setString(1,  this.getTipoidentUsu());
+            sql.setString(2,  this.getNoidentifUsu());
+            sql.setString(3,  this.getNombresUsu());
+            sql.setString(4,  this.getApellidosUsu());
+            sql.setString(5,  this.getCelularUsu());
+            sql.setString(6,  this.getCorreoUsu());
+            sql.setString(7,  this.getDireccionUsu());
+            sql.setString(8,  this.getRolUsu());
+            sql.setString(9,  this.getNickUsu());
+            sql.setString(10, this.getPassword());
+            sql.executeUpdate();
+            System.out.println(this.getClass().getSimpleName()+ " MODIFICADO CORRECTAMENTE");
+            
+        } catch (SQLException ex) {
+            System.err.println("ERROR AL MODIFICAR"+this.getClass().getSimpleName()+": "+ex.getMessage());
+        }
+    }
+    
+    public void eliminar(){
+        try {
+            PreparedStatement sql = ConexionBD.conexion.prepareStatement("DELETE FROM "
+                    +this.getClass().getSimpleName()+" WHERE idusuarios = ?)");
+            sql.setInt(1, this.getIdusuarios());
+            sql.executeUpdate();
+            System.out.println(this.getClass().getSimpleName()+ " ELIMINADO CORRECTAMENTE");
+        } catch (SQLException ex) {
+            System.err.println("ERROR AL ELIMINAR "+this.getClass().getSimpleName()+": "+ex.getMessage());
+        }
+    }
+            
 
-    
-    
-
-    
+    public Iterator<Usuario> buscar(String busqueda){
+        ArrayList<Usuario> losUsuarios = new ArrayList<>();
+        try {
+            PreparedStatement sql = ConexionBD.conexion.prepareStatement("SELECT * FROM "+this.getClass().getSimpleName()
+            +" WHERE tipoidentUsu LIKE ? OR noidentifUsu LIKE ? OR nombresUsu LIKE ? OR apellidosUsu LIKE ? OR celularUsu LIKE ? OR "
+            + "correoUsu LIKE ? OR direccionUsu LIKE ? OR rolUsu LIKE ? OR nick LIKE ?");
+            sql.setString(1,"%"+busqueda+"%" );
+            sql.setString(2,"%"+busqueda+"%" ); 
+            sql.setString(3,"%"+busqueda+"%" );
+            sql.setString(4,"%"+busqueda+"%" );
+            sql.setString(5,"%"+busqueda+"%" );
+            sql.setString(6,"%"+busqueda+"%" );
+            sql.setString(7,"%"+busqueda+"%" );
+            sql.setString(8,"%"+busqueda+"%" );
+            sql.setString(9,"%"+busqueda+"%" );
+            ResultSet rs = sql.executeQuery();
+            Usuario unUsuario;
+            while (rs.next()) {
+               unUsuario = new Usuario();
+               unUsuario.setIdusuarios(rs.getInt("idusuarios"));
+               unUsuario.setTipoidentUsu(rs.getString("tipoidentUsu"));
+               unUsuario.setNoidentifUsu(rs.getString("noidentifUsu"));
+               unUsuario.setNombresUsu(rs.getString("apellidosUsu"));
+               unUsuario.setApellidosUsu(rs.getString("apellidosUsu"));
+               unUsuario.setCelularUsu(rs.getString("correoUsu"));
+               unUsuario.setCorreoUsu(rs.getString("correoUsu"));
+               unUsuario.setDireccionUsu(rs.getString("direccionUsu"));
+               unUsuario.setRolUsu(rs.getString("rolUsu"));
+               unUsuario.setNickUsu(rs.getString("nick"));
+               losUsuarios.add(unUsuario);
+            }
+        } catch (SQLException ex) {
+            System.err.println("ERROR AL BUSCAR "+this.getClass().getSimpleName()+": "+ex.getMessage());
+        }
+        return losUsuarios.iterator();
+    }
     
 }
