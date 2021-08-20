@@ -205,7 +205,7 @@ public class Usuario {
     public void modificar(){
         try {
             PreparedStatement sql = ConexionBD.conexion.prepareStatement("UPDATE "+this.getClass().getSimpleName()+
-                    " SET idusuarios = ?, tipoidentUsu = ?, noidentifUsu = ?, nombresUsu = ?, apellidosUsu = ?, celularUsu = ?, correoUsu = ?, "
+                    " SET idusuarios = ?,tipoidentUsu = ?, noidentifUsu = ?, nombresUsu = ?, apellidosUsu = ?, celularUsu = ?, correoUsu = ?, "
                             + "direccionUsu = ?, rolUsu = ?, nick = ?, password = ?  WHERE idusuarios = ? ");
             sql.setInt(   1,  this.getIdusuarios());
             sql.setString(2,  this.getTipoidentUsu());

@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/darci/Documents/NetBeansProjects/ProyectoAlmacen/src/modelo/Usuario.java</file>
-            <file>file:/C:/Users/darci/Documents/NetBeansProjects/ProyectoAlmacen/src/modelo/ConexionBD.java</file>
-            <file>file:/C:/Users/darci/Documents/NetBeansProjects/ProyectoAlmacen/src/vista/FRMregistroUsuarios.java</file>
-            <file>file:/C:/Users/darci/Documents/NetBeansProjects/ProyectoAlmacen/src/vista/MDInicio.java</file>
-            <file>file:/C:/Users/darci/Documents/NetBeansProjects/ProyectoAlmacen/src/vista/FRMprestarObjeto.java</file>
+            <file>file:/C:/Users/darci/Documents/GIT-HUB/ProyectoAlmacen/src/vista/FRMregistroUsuario.java</file>
+            <file>file:/C:/Users/darci/Documents/GIT-HUB/ProyectoAlmacen/src/modelo/Usuario.java</file>
+            <file>file:/C:/Users/darci/Documents/GIT-HUB/ProyectoAlmacen/src/controlador/ControladorUsuario.java</file>
+            <file>file:/C:/Users/darci/Documents/GIT-HUB/ProyectoAlmacen/src/vista/FRMregistroUsuarios.java</file>
         </group>
     </open-files>
 </project-private>

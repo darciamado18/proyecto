@@ -60,13 +60,10 @@
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtIdUsu" max="32767" attributes="0"/>
                               <Component id="txtPasswordUsu" max="32767" attributes="0"/>
-                              <Component id="txtNumId" max="32767" attributes="0"/>
                               <Component id="cbTipoIdent" max="32767" attributes="0"/>
                               <Component id="txtNombreUsu" max="32767" attributes="0"/>
                               <Component id="txtApellidosUsu" max="32767" attributes="0"/>
@@ -74,7 +71,9 @@
                               <Component id="txtCorreoElect" max="32767" attributes="0"/>
                               <Component id="txtDireccionUsu" max="32767" attributes="0"/>
                               <Component id="txtRolUsu" max="32767" attributes="0"/>
-                              <Component id="txtNickUsu" min="-2" pref="210" max="-2" attributes="0"/>
+                              <Component id="txtNickUsu" pref="210" max="32767" attributes="0"/>
+                              <Component id="txtIdUsu" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtnumId" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -101,10 +100,7 @@
               <Group type="102" attributes="0">
                   <Component id="jLabel11" min="-2" pref="128" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtIdUsu" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="txtIdUsu" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="cbTipoIdent" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -112,8 +108,8 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtNumId" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtnumId" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -173,8 +169,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtRolUsu">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtNumId">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -260,13 +254,6 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtIdUsu">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel12">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="ID USUARIO: "/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="BTNinsertarUsu">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -293,6 +280,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="ELIMINAR"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="txtIdUsu">
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="txtnumId">
         </Component>
       </SubComponents>
     </Container>
