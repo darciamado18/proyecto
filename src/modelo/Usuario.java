@@ -154,16 +154,16 @@ public class Usuario {
             Usuario unUsuario;
             while (rs.next()) {
                 unUsuario = new Usuario();
-                unUsuario.setIdusuarios(  rs.getInt("idusuarios"));
-                unUsuario.setTipoidentUsu(rs.getString("tipoident"));
-                unUsuario.setNoidentifUsu(rs.getString("noidentifUsu"));
-                unUsuario.setNombresUsu(rs.getString("nombresUsu"));
-                unUsuario.setApellidosUsu(rs.getString("apellidosUsu"));
-                unUsuario.setCelularUsu(rs.getString("celularUsu"));
-                unUsuario.setCorreoUsu(rs.getString("correoUsu"));
-                unUsuario.setDireccionUsu(rs.getString("direccionUsu"));
-                unUsuario.setRolUsu(rs.getString("rolUsu"));
-                unUsuario.setNickUsu(rs.getString("nick"));
+                unUsuario.setIdusuarios(   rs.getInt("idusuarios"));
+                unUsuario.setTipoidentUsu( rs.getString("tipoident"));
+                unUsuario.setNoidentifUsu( rs.getString("noidentifUsu"));
+                unUsuario.setNombresUsu(   rs.getString("nombresUsu"));
+                unUsuario.setApellidosUsu( rs.getString("apellidosUsu"));
+                unUsuario.setCelularUsu(   rs.getString("celularUsu"));
+                unUsuario.setCorreoUsu(    rs.getString("correoUsu"));
+                unUsuario.setDireccionUsu( rs.getString("direccionUsu"));
+                unUsuario.setRolUsu(       rs.getString("rolUsu"));
+                unUsuario.setNickUsu(      rs.getString("nick"));
                 losUsuarios.add(unUsuario);                
             }          
         } catch (SQLException ex) {
@@ -181,17 +181,18 @@ public class Usuario {
     public void insertar(){
         try {
             PreparedStatement sql = ConexionBD.conexion.prepareStatement("INSERT INTO" 
-                    +this.getClass().getSimpleName()+" VALUES (NULL,?,?,?,?)");
-            sql.setString(1,  this.getTipoidentUsu());
-            sql.setString(2,  this.getNoidentifUsu());
-            sql.setString(3,  this.getNombresUsu());
-            sql.setString(4,  this.getApellidosUsu());
-            sql.setString(5,  this.getCelularUsu());
-            sql.setString(6,  this.getCorreoUsu());
-            sql.setString(7,  this.getDireccionUsu());
-            sql.setString(8,  this.getRolUsu());
-            sql.setString(9,  this.getNickUsu());
-            sql.setString(10, this.getPassword());
+                    +this.getClass().getSimpleName()+" VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?,?)");
+            sql.setInt(   1,  this.getIdusuarios());
+            sql.setString(2,  this.getTipoidentUsu());
+            sql.setString(3,  this.getNoidentifUsu());
+            sql.setString(4,  this.getNombresUsu());
+            sql.setString(5,  this.getApellidosUsu());
+            sql.setString(6,  this.getCelularUsu());
+            sql.setString(7,  this.getCorreoUsu());
+            sql.setString(8,  this.getDireccionUsu());
+            sql.setString(9,  this.getRolUsu());
+            sql.setString(10, this.getNickUsu());
+            sql.setString(11, this.getPassword());
             sql.executeUpdate();
             System.out.println(this.getClass().getSimpleName()+ " INSERTADO CORRECTAMENTE");
         } catch (SQLException ex) {
@@ -204,18 +205,19 @@ public class Usuario {
     public void modificar(){
         try {
             PreparedStatement sql = ConexionBD.conexion.prepareStatement("UPDATE "+this.getClass().getSimpleName()+
-                    " SET tipoidentUsu = ?, noidentifUsu = ?, nombresUsu = ?, apellidosUsu = ?, celularUsu = ?, correoUsu = ?, "
+                    " SET idusuarios = ?, tipoidentUsu = ?, noidentifUsu = ?, nombresUsu = ?, apellidosUsu = ?, celularUsu = ?, correoUsu = ?, "
                             + "direccionUsu = ?, rolUsu = ?, nick = ?, password = ?  WHERE idusuarios = ? ");
-            sql.setString(1,  this.getTipoidentUsu());
-            sql.setString(2,  this.getNoidentifUsu());
-            sql.setString(3,  this.getNombresUsu());
-            sql.setString(4,  this.getApellidosUsu());
-            sql.setString(5,  this.getCelularUsu());
-            sql.setString(6,  this.getCorreoUsu());
-            sql.setString(7,  this.getDireccionUsu());
-            sql.setString(8,  this.getRolUsu());
-            sql.setString(9,  this.getNickUsu());
-            sql.setString(10, this.getPassword());
+            sql.setInt(   1,  this.getIdusuarios());
+            sql.setString(2,  this.getTipoidentUsu());
+            sql.setString(3,  this.getNoidentifUsu());
+            sql.setString(4,  this.getNombresUsu());
+            sql.setString(5,  this.getApellidosUsu());
+            sql.setString(6,  this.getCelularUsu());
+            sql.setString(7,  this.getCorreoUsu());
+            sql.setString(8,  this.getDireccionUsu());
+            sql.setString(9,  this.getRolUsu());
+            sql.setString(10, this.getNickUsu());
+            sql.setString(11, this.getPassword());
             sql.executeUpdate();
             System.out.println(this.getClass().getSimpleName()+ " MODIFICADO CORRECTAMENTE");
             
@@ -241,7 +243,7 @@ public class Usuario {
         ArrayList<Usuario> losUsuarios = new ArrayList<>();
         try {
             PreparedStatement sql = ConexionBD.conexion.prepareStatement("SELECT * FROM "+this.getClass().getSimpleName()
-            +" WHERE tipoidentUsu LIKE ? OR noidentifUsu LIKE ? OR nombresUsu LIKE ? OR apellidosUsu LIKE ? OR celularUsu LIKE ? OR "
+            +" WHERE idusuarios LIKE ? OR tipoidentUsu LIKE ? OR noidentifUsu LIKE ? OR nombresUsu LIKE ? OR apellidosUsu LIKE ? OR celularUsu LIKE ? OR "
             + "correoUsu LIKE ? OR direccionUsu LIKE ? OR rolUsu LIKE ? OR nick LIKE ?");
             sql.setString(1,"%"+busqueda+"%" );
             sql.setString(2,"%"+busqueda+"%" ); 
@@ -256,16 +258,16 @@ public class Usuario {
             Usuario unUsuario;
             while (rs.next()) {
                unUsuario = new Usuario();
-               unUsuario.setIdusuarios(rs.getInt("idusuarios"));
-               unUsuario.setTipoidentUsu(rs.getString("tipoidentUsu"));
-               unUsuario.setNoidentifUsu(rs.getString("noidentifUsu"));
-               unUsuario.setNombresUsu(rs.getString("apellidosUsu"));
-               unUsuario.setApellidosUsu(rs.getString("apellidosUsu"));
-               unUsuario.setCelularUsu(rs.getString("correoUsu"));
-               unUsuario.setCorreoUsu(rs.getString("correoUsu"));
-               unUsuario.setDireccionUsu(rs.getString("direccionUsu"));
-               unUsuario.setRolUsu(rs.getString("rolUsu"));
-               unUsuario.setNickUsu(rs.getString("nick"));
+               unUsuario.setIdusuarios(   rs.getInt("idusuarios"));
+               unUsuario.setTipoidentUsu( rs.getString("tipoidentUsu"));
+               unUsuario.setNoidentifUsu( rs.getString("noidentifUsu"));
+               unUsuario.setNombresUsu(   rs.getString("apellidosUsu"));
+               unUsuario.setApellidosUsu( rs.getString("apellidosUsu"));
+               unUsuario.setCelularUsu(   rs.getString("correoUsu"));
+               unUsuario.setCorreoUsu(    rs.getString("correoUsu"));
+               unUsuario.setDireccionUsu( rs.getString("direccionUsu"));
+               unUsuario.setRolUsu(       rs.getString("rolUsu"));
+               unUsuario.setNickUsu(      rs.getString("nick"));
                losUsuarios.add(unUsuario);
             }
         } catch (SQLException ex) {

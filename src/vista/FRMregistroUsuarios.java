@@ -18,18 +18,17 @@ public class FRMregistroUsuarios extends javax.swing.JInternalFrame {
     /**
      */
     public FRMregistroUsuarios() {
-        
-      
-        
-        //CREA UN NUEVO FORMULARIO 
-        
+        initComponents();
+        txtIdUsu.setText(0);
+        txtIdUsu.setVisible(false);
+        limpiarFormulario();       
        
             
         }
         
         
         
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,7 +61,11 @@ public class FRMregistroUsuarios extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         txtCorreoElect = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        btnInsertarUsu = new javax.swing.JToggleButton();
+        txtIdUsu = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        BTNinsertarUsu = new javax.swing.JButton();
+        BTNmodificarUsu = new javax.swing.JButton();
+        BTNeliminarUsu = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -101,6 +104,22 @@ public class FRMregistroUsuarios extends javax.swing.JInternalFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\darci\\Documents\\NetBeansProjects\\ProyectoAlmacen\\src\\imagenes\\128UsuForm.png")); // NOI18N
 
+        jLabel12.setText("ID USUARIO: ");
+
+        BTNinsertarUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/16BtPre.png"))); // NOI18N
+        BTNinsertarUsu.setText("GUARDAR");
+        BTNinsertarUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNinsertarUsuActionPerformed(evt);
+            }
+        });
+
+        BTNmodificarUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/16btGuar.png"))); // NOI18N
+        BTNmodificarUsu.setText("MODIFICAR");
+
+        BTNeliminarUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/16Eliminar.png"))); // NOI18N
+        BTNeliminarUsu.setText("ELIMINAR");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -108,7 +127,7 @@ public class FRMregistroUsuarios extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -120,9 +139,10 @@ public class FRMregistroUsuarios extends javax.swing.JInternalFrame {
                             .addComponent(jLabel7)
                             .addComponent(jLabel8)
                             .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                            .addComponent(jLabel12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtIdUsu)
                             .addComponent(txtPasswordUsu)
                             .addComponent(txtNumId)
                             .addComponent(cbTipoIdent, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -135,14 +155,26 @@ public class FRMregistroUsuarios extends javax.swing.JInternalFrame {
                             .addComponent(txtNickUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel11)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BTNinsertarUsu)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addComponent(BTNmodificarUsu)
+                        .addGap(36, 36, 36)
+                        .addComponent(BTNeliminarUsu)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel11)
-                .addGap(11, 11, 11)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIdUsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbTipoIdent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -182,34 +214,25 @@ public class FRMregistroUsuarios extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPasswordUsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BTNinsertarUsu)
+                    .addComponent(BTNmodificarUsu)
+                    .addComponent(BTNeliminarUsu))
                 .addContainerGap())
         );
-
-        btnInsertarUsu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/16BtPre.png"))); // NOI18N
-        btnInsertarUsu.setText("GUARDAR");
-        btnInsertarUsu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInsertarUsuActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnInsertarUsu)
-                .addGap(64, 64, 64))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnInsertarUsu)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 44, Short.MAX_VALUE))
         );
 
         pack();
@@ -219,21 +242,20 @@ public class FRMregistroUsuarios extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNickUsuActionPerformed
 
-    private void btnInsertarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarUsuActionPerformed
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_btnInsertarUsuActionPerformed
+    private void BTNinsertarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNinsertarUsuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BTNinsertarUsuActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btnInsertarUsu;
+    private javax.swing.JButton BTNeliminarUsu;
+    private javax.swing.JButton BTNinsertarUsu;
+    private javax.swing.JButton BTNmodificarUsu;
     private javax.swing.JComboBox<String> cbTipoIdent;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -247,10 +269,16 @@ public class FRMregistroUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCelularUsu;
     private javax.swing.JTextField txtCorreoElect;
     private javax.swing.JTextField txtDireccionUsu;
+    private javax.swing.JTextField txtIdUsu;
     private javax.swing.JTextField txtNickUsu;
     private javax.swing.JTextField txtNombreUsu;
     private javax.swing.JTextField txtNumId;
     private javax.swing.JPasswordField txtPasswordUsu;
     private javax.swing.JTextField txtRolUsu;
     // End of variables declaration//GEN-END:variables
+
+    private void limpiarFormulario() {
+        txtIdUsu.setValue(0);
+        
+    }
 }
