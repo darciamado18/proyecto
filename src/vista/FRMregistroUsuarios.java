@@ -51,6 +51,9 @@ public class FRMregistroUsuarios extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         btnInsertarUsu = new javax.swing.JToggleButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
         setTitle("REGISTRO DE USUARIO");
 
         jLabel7.setText("DIRECCION: ");
