@@ -278,6 +278,15 @@ public class FRMregistroUsuarios extends javax.swing.JInternalFrame {
         txtIdUsu.setValue(0);
         cbTipoIdent.setToolTipText("SELECCIONE");
         txtnumId.setValue(0);
+        txtNombreUsu.setText("ESCRIBE TU NOMBRE");
+        txtApellidosUsu.setText("ESCRIBE TU APELLIDO");
+        txtCelularUsu.setText("ESCRIBE TU CELULAR");
+        txtCorreoElect.setText("ESCRIBE TU CORREO ELECTRONICO");
+        txtDireccionUsu.setText("ESCRIBE TU DIRECCION");
+        txtRolUsu.setText("ESCRIBE TU ROL");
+        txtNickUsu.setText("ESCRIBE TU USUARIO");
+        txtPasswordUsu.setText("ESCRIBE TU CONTRASEÑA");
+        
         
       
     }
